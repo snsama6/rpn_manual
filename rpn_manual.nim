@@ -1,0 +1,29 @@
+import strformat
+
+proc generateManual() =
+  var htmlContent = fmt"""
+<!DOCTYPE html>
+<html>
+<head>
+  <title>RPN计算器使用手册</title>
+</head>
+<body>
+  <h1>RPN计算器使用手册</h1>
+  <h2>一、编译命令</h2>
+  <pre>g++ rpn_calc.cpp -o rpn_calc</pre>
+  <h2>二、运行示例</h2>
+  <pre>./rpn_calc
+> 3 4 +
+结果: 7</pre>
+  <h2>三、功能说明</h2>
+  <p>支持+、-、*、/四则运算，c清空栈，d显示栈，q退出。</p>
+</body>
+</html>
+  """
+  # 将内容写入HTML文件
+  var f = open("rpn_manual.html", fmWrite)
+  f.write(htmlContent)
+  f.close()
+
+generateManual()
+echo "HTML文档已生成：rpn_manual.html"
